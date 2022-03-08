@@ -1,0 +1,13 @@
+<div class="container product_edit">
+  <%= form_for @product,url: product_edit_path, method: :patch  do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :product_name %><br>
+    <%= f.label :description%>
+    <%= f.text_area :description %><br>
+    <%= f.label :team_size %>
+    <%= f.text_field :team_size %> <br>
+    <%= f.label :charges %>
+    <%= f.text_field :charges %> <br>
+    <%= f.submit %>
+  <% end %>
+</div>

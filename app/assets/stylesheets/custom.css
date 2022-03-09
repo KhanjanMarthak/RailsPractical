@@ -1,41 +1,101 @@
 
 .nav-padding{
-   padding: 1%;
+  padding: 1%;
 }
 .mybrand > img {
    width:50px;
-   height: 50px;
+  height: 50px;
 }
 
 .navbar-brand{ 
-    font-size: 24px !important;
-    padding: 5px !important;
+  font-size: 24px !important;
+  padding: 5px !important;
 }
 
 .header{
-    background-color: white !important;
+  background-color: white !important;
 }
 .navbar-nav{
-    margin-left: 10%;
-    margin-right: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 .navbar-nav > li{
-    padding-left:30px;
-    padding-right:30px;
+  padding-left:30px;
+  padding-right:30px;
   }
   
 .nav-item>a{
-    font-size: 18px !important ;
-    padding: 10px;
-    color: black;
-    font-weight: 500;
-    font-family: 'Courier New', Courier, monospace;
+  font-size: 18px !important ;
+  padding: 10px;
+  color: black;
+  font-weight: 500;
+  font-family: 'Courier New', Courier, monospace;
    
 }
 .simform{
-    background-color: aliceblue;
-    font-size: 26px;
-    text-align: center;
-    margin-top: 10%;
-    margin-bottom:10%;
+  background-color: aliceblue;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom:10%;
+}
+.products_title{
+  text-align: center;
+  margin-top: 10px;
+}
+.our_products{
+  margin: 3%;
+  padding: 2%;
+  background-color: white;
+}
+.add{
+  margin-top: 2%;
+  text-align: center;
+  }
+
+.show_product{
+  margin-top: 10px;
+}
+.show_product>h1{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: 500;
+    
+}
+.show_product>h2{
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;  
+}
+.product_edit{
+  margin-top:20px;
+  display: flex;
+  justify-content: center;
+}
+.product_edit>form{
+  width: fit-content;
+}
+.product_edit>form>h1{
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: normal;
+}
+.create_form{
+  display: flex;
+  justify-content: center;
+}
+
+.create_form>form{
+  width: fit-content;
+}
+.create_form >form>h2 {
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: normal;
+
+}
+.add_text{
+  margin: 15px;
+  text-align: center;
 }

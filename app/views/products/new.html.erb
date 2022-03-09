@@ -1,14 +1,14 @@
-<h1> Add a Product </h1>
-<div class="create_form">
-<%= form_for @product, remote: false  do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :product_name %><br>
-  <%= f.label :description%>
-  <%= f.text_area :description %><br>
-  <%= f.label :team_size %>
-  <%= f.text_field :team_size %> <br>
-  <%= f.label :charges %>
-  <%= f.text_field :charges %> <br>
-  <%= f.submit %>
-<% end %>
+<h1 class="add_text"> Add a Product </h1>
+<div class="container create_form">
+  <%= form_for @product, remote: false  do |f| %>
+    <h2><%= f.label :title %></h2>
+    <p><%= f.text_field :product_name %></p><br>
+    <h2><%= f.label :description%></h2>
+    <h2><%= f.text_area :description %></h2><br>
+    <h2><%= f.label :team_size %></h2>
+    <h2><%= f.text_field :team_size %></h2> <br>
+    <h2><%= f.label :charges %></h2>
+    <h2><%= f.text_field :charges %></h2> <br>
+    <h2><%= f.submit %></h2>
+  <% end %>
 </div>

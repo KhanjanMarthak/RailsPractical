@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   delete "product/destroy/:id", to: "products#destroy", as:"destroy_me"
   get "product/:id/edit" , to: "products#edit", as:"product_edit" 
   patch "product/:id/edit", to: "products#update" 
-  put "product/:id", to: "products#update"   
+  put "product/:id", to: "products#update" 
+  
+  resources :authors
   # Defines the root path route ("/")
   # root "articles#index"
 end

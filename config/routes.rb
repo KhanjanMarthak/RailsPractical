@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "product/:id/edit" , to: "products#edit", as:"product_edit" 
   patch "product/:id/edit", to: "products#update" 
   put "product/:id", to: "products#update" 
-  
+  resources :books
   resources :authors
   # Defines the root path route ("/")
   # root "articles#index"

@@ -30,15 +30,15 @@ class AuthorsController < ApplicationController
     puts params
     @author= Author.find(params[:id])
     @author.update(author_params)
-    redirect_to author_path(@author)  
+    redirect_to authors_path(@author)  
   end
     
   def destroy
     @author= Author.find(params[:id])
     @author.destroy
-    redirect_to _path(@author)
+    redirect_to author_path(@author)
   end
-
+  
   private
   def author_params
     params.require(:author).permit(:first_name, :last_name, :dob, :email)

@@ -1,0 +1,11 @@
+<div class="show_product container"> 
+  <h2>First Name:</h2><h1><%= @author.first_name %></h1>
+  <h2>last name:</h2><h1><%= @author.last_name %></h1>
+  <h2>Date of birth</h2><h1><%= @author.dob %></h1>
+  <h2>Email</h2><h1><%= @author.email %></h1>
+  <h2>Books:</h2>
+  <% @author.books.each do |f| %>
+    <h1> <span>Book Id:</span> <%= f.id %><span>  Book Name:</span> <%= f.book_name %></h1>     
+  <% end %>
+</div>
+  

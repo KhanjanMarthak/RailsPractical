@@ -13,9 +13,12 @@ class BooksController < ApplicationController
     
   def create
     puts params
-    @book= Book.new(book_params)
-    if @book.save
-      redirect_to book_path(@book)
+    @book= Book.create(book_params)
+    if @book.valid?
+      redirect_to books_path(@book)
+    else 
+      flash[:errors]= @book.errors.full_messages
+      render :new
     end
   end
     
@@ -24,16 +27,18 @@ class BooksController < ApplicationController
   end 
     
   def update
-    puts params
+    
     @book = Book.find(params[:id])
     @book.update(book_params)
-    redirect_to book_path(@book)  
+    redirect_to books_path(@book)
+      
   end
         
   def destroy
+    puts params
     @book= Book.find(params[:id])
     @book.destroy
-    redirect_to book_path(@book)
+    redirect_to books_path(@book)
   end
     
   private

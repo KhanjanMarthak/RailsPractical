@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">    
+
+  <body>
+
+    <div class="products_title"> 
+      <h1>
+        Our facultys
+      </h1>
+    </div> 
+
+    <div class="add"> 
+      <p><%= link_to 'Add a faculty', new_faculty_path %></p>
+      <p><%= link_to 'Show all Books', books_path %></p>      
+    </div>
+    <div class="our_products"> 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">faculty Name</th>
+            <th scope="col">phone number</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Email</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Show</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>  
+          </tr>
+        </thead>
+              
+        <% @faculty.each do |faculty| %>
+          <tr>
+            <td><p><%= faculty.fac_first_name + " " + faculty.fac_last_name %></p></td>
+            <td><p><%= faculty.phone_number %></p></td>
+            <td><p><%= faculty.fac_dob%></p></td>
+            <td><p><%= faculty.email%></p></td>
+            <td><p><%= faculty.designation%></p></td>
+            <td><%= button_to 'show', faculty_path(faculty), method: "get" %></td>
+            <td><%= button_to 'edit a faculty', edit_faculty_path(faculty), method: "get" %></td>
+            <td><%= button_to 'delete a faculty', faculty_path(faculty), method: "delete" %></td>
+          </tr>
+        <% end %>
+        
+      </table>
+    </div>
+
+  </body>
+</html>
+ 

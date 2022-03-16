@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">    
+
+  <body>
+
+    <div class="products_title"> 
+      <h1>
+        Our Students
+      </h1>
+    </div> 
+
+    <div class="add"> 
+      <p><%= link_to 'Add a student', new_student_path %></p>
+      <p><%= link_to 'Show all Books', books_path %></p>      
+    </div>
+    <div class="our_products"> 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Student Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Show</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>  
+          </tr>
+        </thead>
+              
+        <% @student.each do |student| %>
+          <tr>
+            <td><p><%= student.stud_first_name + " " + student.stud_last_name %></p></td>
+            <td><p><%= student.department %></p></td>
+            <td><p><%= student.stud_dob%></p></td>
+            <td><%= button_to 'show', student_path(student), method: "get" %></td>
+            <td><%= button_to 'edit a student', edit_student_path(student), method: "get" %></td>
+            <td><%= button_to 'delete a student', student_path(student), method: "delete" %></td>
+          </tr>
+        <% end %>
+        
+      </table>
+    </div>
+
+  </body>
+</html>
+ 

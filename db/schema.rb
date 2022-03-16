@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_11_104812) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_16_095941) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -29,6 +29,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_11_104812) do
     t.integer "author_id"
     t.integer "pages"
     t.index ["author_id"], name: "index_books_on_author_id"
+  end
+
+  create_table "faculties", force: :cascade do |t|
+    t.string "fac_first_name"
+    t.string "fac_last_name"
+    t.date "fac_dob"
+    t.string "email"
+    t.integer "phone_number"
+    t.string "designation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "homepages", force: :cascade do |t|
@@ -56,6 +67,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_11_104812) do
     t.integer "charges"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "stud_first_name"
+    t.string "stud_last_name"
+    t.string "department"
+    t.date "stud_dob"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "term_of_servie"
   end
 
 end

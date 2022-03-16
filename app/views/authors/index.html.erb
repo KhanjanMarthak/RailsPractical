@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">    
+
+  <body>
+
+    <div class="products_title"> 
+      <h1>
+        Our Authors
+      </h1>
+    </div> 
+
+    <div class="add"> 
+      <p><%= link_to 'Add a Author', new_author_path %></p>
+      <p><%= link_to 'Show all Books', books_path %></p>      
+    </div>
+    <div class="our_products"> 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Author Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">No. of Books</th>
+            <th scope="col">Show</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Books</th>   
+          </tr>
+        </thead>
+              
+        <% @author.each do |author| %>
+          <tr>
+            <td><p><%= author.first_name + " " + author.last_name %></p></td>
+            <td><p><%= author.email %></p></td>
+            <td><p><%= author.books.count%></p></td>
+            <td><%= button_to 'show', author_path(author), method: "get" %></td>
+            <td><%= button_to 'edit a author', edit_author_path(author), method: "get" %></td>
+            <td><%= button_to 'delete a author', author_path(author), method: "delete" %></td>
+            <td>
+              <% author.books.each do |f| %>
+                <p><%= link_to f.book_name , book_path(f)%></p>
+              <% end %> 
+            </td> 
+          </tr>
+        <% end %>
+        
+      </table>
+    </div>
+
+  </body>
+</html>
+ 

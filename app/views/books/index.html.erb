@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">    
+
+  <body>
+    <div class="products_title"> 
+      <h1>
+        Our Books
+      </h1>
+    </div> 
+    <div class="add"> 
+      <p><%= link_to 'Add a Book', new_book_path %></p>
+      <p><%= link_to 'Show all Authors', authors_path %></p></div>
+    <div class="our_products"> 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Author</th> 
+            <th scope="col">Show</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <% @book.each do |book| %>
+          <tr>
+            <td><p><%= book.id %></p></td>
+            <td><p><%= book.book_name %></p></td>
+            <td><p><%= book.book_price %> ₹ </p></td> 
+            <td><p><%=link_to book.author.first_name + " " + book.author.last_name, author_path(book) %></p></td>      
+            <td><%= button_to 'show', book_path(book), method: "get" %></td>
+            <td><%= button_to 'edit a book', edit_book_path(book), method: "get" %></td>
+            <td><%= button_to 'delete a book', book_path(book), method: "delete" %></td>  
+          </tr>
+        <% end %>
+
+      </table>
+    </div>
+  </body>
+
+</html>
+ 

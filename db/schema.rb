@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_08_064423) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_11_104812) do
+  create_table "authors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "dob"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "sex"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "book_name"
+    t.decimal "book_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "author_id"
+    t.integer "pages"
+    t.index ["author_id"], name: "index_books_on_author_id"
+  end
+
   create_table "homepages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.bigint "imageable_id"
+    t.string "imageable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "join_tables", id: false, force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "book_id"
   end
 
   create_table "products", force: :cascade do |t|

@@ -1,0 +1,7 @@
+<div class="show_product container"> 
+  <h2>Book Name:</h2><h1><%= @book.book_name %></h1>
+  <h2>Book Price:</h2><h1><%= @book.book_price %> ₹ </h1>
+  <h2>Author id</h2><h1><%= @book.author_id %></h1>
+  <h2><%= @book.author.first_name + " " + @book.author.last_name %></h2>
+</div>
+  

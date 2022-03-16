@@ -37,14 +37,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_11_104812) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string "author_type"
-    t.integer "author_id"
-    t.string "book_type"
-    t.integer "book_id"
+    t.bigint "imageable_id"
+    t.string "imageable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_images_on_author"
-    t.index ["book_type", "book_id"], name: "index_images_on_book"
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
   end
 
   create_table "join_tables", id: false, force: :cascade do |t|

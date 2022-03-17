@@ -1,10 +1,10 @@
 <h1 class="add_text"> Add a faculty</h1>
 <% if flash[:errors] %>
-    <div class="valid-errors alert alert-danger" role="alert">
-      <h2>Errors Faced while Adding a Faculty</h2>
-      <% flash[:errors].each do |error|%>
-        <li><%= error %></li> 
-      <%end %>
+  <div class="valid-errors alert alert-danger" role="alert">
+    <h2>Errors Faced while Adding a Faculty</h2>
+    <% flash[:errors].each do |error|%>
+      <li><%= error %></li> 
+    <%end %>
   </div>
 <% end %>
 <div class="container create_form">

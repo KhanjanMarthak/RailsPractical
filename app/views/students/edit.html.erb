@@ -1,7 +1,7 @@
 <h1 class="add_text"> Edit a Student </h1>
 <% if flash[:errors] %>
-    <div class="valid-errors alert alert-danger" role="alert">
-      <h2>Errors Faced while Adding a student</h2>
+  <div class="valid-errors alert alert-danger" role="alert">
+    <h2>Errors Faced while Adding a student</h2>
     <% flash[:errors].each do |error|%>
       <p><%= error %></p> 
     <%end %>

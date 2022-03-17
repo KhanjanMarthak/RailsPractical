@@ -1,9 +1,12 @@
 <h1 class="add_text"> Add a faculty</h1>
-  <% if flash[:errors] %>
-    <% flash[:errors].each do |error|%>
-      <p style="color:red"><%= error %> </p>
-    <%end %>
-  <% end %>
+<% if flash[:errors] %>
+    <div class="valid-errors alert alert-primary" role="alert">
+      <h2>Errors Faced while Adding a Faculty</h2>
+      <% flash[:errors].each do |error|%>
+        <li><%= error %></li> 
+      <%end %>
+  </div>
+<% end %>
 <div class="container create_form">
   <%= form_for @faculty, remote: false  do |f| %>
     <h2><%= f.label :fac_first_name %></h2>

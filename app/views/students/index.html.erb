@@ -11,7 +11,7 @@
 
     <div class="add"> 
       <p><%= link_to 'Add a student', new_student_path %></p>
-      <p><%= link_to 'Show all Books', books_path %></p>      
+      <p><%= link_to 'Show all faculies', faculties_path %></p>      
     </div>
     <div class="our_products"> 
       <table class="table">
@@ -36,10 +36,10 @@
             <td><%= button_to 'delete a student', student_path(student), method: "delete" %></td>
           </tr>
         <% end %>
-        
       </table>
     </div>
 
   </body>
+
 </html>
  

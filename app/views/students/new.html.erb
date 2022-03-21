@@ -2,9 +2,9 @@
 <% if flash[:errors] %>
   <div class="valid-errors alert alert-danger" role="alert">
     <h2>Errors Faced while Adding a Student</h2>
-    <% flash[:errors].each do |error|%>
-     <p><%= error %></p> 
-    <%end %>
+      <% flash[:errors].each do |error|%>
+        <p><%= error %></p> 
+      <%end %>
   </div>
 <% end %>
 <div class="container create_form">

@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  
   def index
     @student= Student.all
   end
@@ -49,4 +50,5 @@ class StudentsController < ApplicationController
   def student_params
     params.require(:student).permit(:stud_first_name, :stud_last_name, :stud_dob, :department, :term_of_service )
   end
+  
 end

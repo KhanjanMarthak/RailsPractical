@@ -15,8 +15,8 @@ class StudentsController < ApplicationController
   def create
     @student= Student.new(student_params)
     @student.department = student_params[:department].upcase
-    @student.save
     if @student.valid?
+      @student.save
       redirect_to students_path(@student)
     else 
       flash.now[:errors]= @student.errors.full_messages

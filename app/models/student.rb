@@ -3,7 +3,8 @@ class Student < ApplicationRecord
   validates :stud_dob, comparison: { less_than: Date.today+1, message: "birthdate can't be in future" }
   validates :department, inclusion: {in: %w(IT CP), message: "Department can't be %{value}, It has to be IT or CP"}
   validates :term_of_service, acceptance: true, presence: { message: "You cannot proceed without accepting Terms of Usage" }
-
+  
+  #after_initialise and after_find callback
   after_initialize :object_initialisation 
   after_find :object_found
 
@@ -17,12 +18,12 @@ class Student < ApplicationRecord
 
   #Destroying an Object
   before_destroy :will_destroy
-  after_destroy :object_destroyed, if: Proc.new { |order| order.stud_first_name + "is successfully deleteed" }
+  after_destroy :object_destroyed,  if: Proc.new { |order| puts order.stud_first_name  + " is successfully deleted" }
 
   #before_validation of DOB for student
-  before_validation :before_DOB
+  before_validation  :check_validation, :before_DOB
+  after_validation  :complete_validation
     
-
   private
   def object_initialisation
     puts "object initialised"
@@ -37,7 +38,7 @@ class Student < ApplicationRecord
   end
 
   def created_method
-    puts "the object is created"
+    puts "the object is created"   
   end
   
   def will_update
@@ -51,12 +52,20 @@ class Student < ApplicationRecord
   def will_destroy
     puts "the object will be deleted soon"
   end
-
-
+  
+  def object_destroyed
+  end
 
   def before_DOB
     puts "this is callback called before validating dob"
   end  
 
+  def check_validation
+    puts "Checking validation"
+  end
+  def complete_validation
+    puts "validation completed"
+  end
+  
 end
  

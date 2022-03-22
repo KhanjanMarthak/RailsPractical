@@ -5,7 +5,8 @@ class Faculty < ApplicationRecord
   validates :designation, inclusion: {in: %w(Asst.Prof Prof), message: "can't be %{value}, it has to be Asst.Prof or Prof "}
   validates :designation, exclusion: {in: %w(HOD Sr.Prof), message: "designation can't be HOD or Sr.Prof "}
   validates :phone_number, :presence => true, :numericality => true,  :length => { :is=>10, message: "should be 10 Digit Mobile Number" }
-
+  
+  #after_initialise and after_find callback
   after_initialize :object_initialisation 
   after_find :object_found
 
@@ -21,9 +22,9 @@ class Faculty < ApplicationRecord
   before_destroy :will_destroy
   after_destroy :object_destroyed
 
-  #before_validation of DOB for student
-  after_validation :after_DOB
-    
+  #validation of DOB for student
+  after_validation :after_DOB, :complete_validation
+  before_validation :check_validation
 
   private
   def object_initialisation
@@ -40,6 +41,7 @@ class Faculty < ApplicationRecord
 
   def created_method
     puts "the object is created"
+    puts "Email is also validated"
   end
   
   def will_update
@@ -58,9 +60,20 @@ class Faculty < ApplicationRecord
     puts "the object is deleted "
   end
 
+  def object_destroyed
+    puts "Faculty is deleted successfully"
+  end
 
   def after_DOB
     puts "this is callback called after validating dob"
   end  
+
+  def complete_validation
+    puts "Validation completed"
+  end
+
+  def check_validation
+    puts "checking Validation "
+  end
 
 end

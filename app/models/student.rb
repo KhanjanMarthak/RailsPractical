@@ -18,8 +18,7 @@ class Student < ApplicationRecord
 
   #Destroying an Object
   before_destroy :will_destroy
-  after_destroy :object_destroyed,  if: Proc.new { |order| puts order.stud_first_name  + " is successfully deleted" }
-
+  after_destroy :object_destroyed , :if => :mycount? 
   #before_validation of DOB for student
   before_validation  :check_validation, :before_DOB
   after_validation  :complete_validation
@@ -53,9 +52,6 @@ class Student < ApplicationRecord
     puts "the object will be deleted soon"
   end
   
-  def object_destroyed
-  end
-
   def before_DOB
     puts "this is callback called before validating dob"
   end  
@@ -66,6 +62,13 @@ class Student < ApplicationRecord
   def complete_validation
     puts "validation completed"
   end
-  
+
+  def object_destroyed
+    puts "Student is destroyed"
+  end
+
+  def mycount?
+    Student.count >= 2 ? true : false
+  end
+
 end
- 

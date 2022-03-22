@@ -13,8 +13,9 @@ class FacultiesController < ApplicationController
   end
 
   def create
-    @faculty= Faculty.create(faculty_params)
+    @faculty= Faculty.new(faculty_params)
     if @faculty.valid?
+      @faculty.save
       redirect_to faculties_path(@faculty)
     else 
       flash[:errors]= @faculty.errors.full_messages

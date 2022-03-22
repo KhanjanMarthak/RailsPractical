@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   put "product/:id", to: "products#update" 
   resources :books
   resources :authors
+  resources :students
+  resources :faculties
   # Defines the root path route ("/")
   # root "articles#index"
 end

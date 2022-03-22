@@ -1,0 +1,23 @@
+<h1 class="add_text"> Edit a Student </h1>
+<% if flash[:errors] %>
+  <div class="valid-errors alert alert-danger" role="alert">
+    <h2>Errors Faced while Adding a student</h2>
+    <% flash[:errors].each do |error|%>
+      <p><%= error %></p> 
+    <%end %>
+  </div>
+<% end %>
+<div class="container create_form">
+  <%= form_for @student do |f| %>
+    <h2><%= f.label :first_name %></h2>
+    <p><%= f.text_field :stud_first_name %></p><br>
+    <h2><%= f.label :last_name%></h2>
+    <p><%= f.text_field :stud_last_name %></h2><br>
+    <h2><%= f.label :date %></h2>
+    <p><%= f.date_select :stud_dob, start_year: 1800, end_year: Time.now.year %></h2> <br>
+    <h2><%= f.label :department %></h2>
+    <p><%= f.text_field :department %></h2><br>
+    <h2><%= f.check_box :term_of_service %> <%= f.label :terms_of_service %></h2><br>
+    <h2><%= f.submit :value=> "Add a student" %></h2>
+  <% end %>
+</div>

@@ -19,7 +19,7 @@ class Student < ApplicationRecord
   #Destroying an Object
   before_destroy :will_destroy
   after_destroy :object_destroyed , :if => :mycount? 
-  #before_validation of DOB for student
+  #after_validation of DOB for student
   before_validation  :check_validation, :before_DOB
   after_validation  :complete_validation
     

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :authors
   resources :students
   resources :faculties
+  resources :employees
   # Defines the root path route ("/")
   # root "articles#index"
 end

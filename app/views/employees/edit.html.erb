@@ -1,0 +1,28 @@
+<h1 class="add_text"> Edit a Student </h1>
+<% if flash[:errors] %>
+  <div class="valid-errors alert alert-danger" role="alert">
+    <h2>Errors Faced while Adding a student</h2>
+    <% flash[:errors].each do |error|%>
+      <p><%= error %></p> 
+    <%end %>
+  </div>
+<% end %>
+<div class="container create_form">
+  <%= form_for @employee, remote: false  do |f| %>
+    <h2><%= f.label :emp_first_name %></h2>
+    <p><%= f.text_field :emp_first_name %></p><br>
+    <h2><%= f.label :emp_last_name%></h2>
+    <p><%= f.text_field :emp_last_name %></h2><br>
+    <h2><%= f.label :email%></h2>
+    <p><%= f.text_field :email %></h2><br>
+    <h2><%= f.label :age %></h2>
+    <p><%= f.text_field :age %></h2><br>
+    <h2><%= f.label :no_of_order %></h2>
+    <p><%= f.number_field :no_of_order %></h2><br>
+    <h2><%= f.label :full_time_available %></h2>
+    <p><%= f.select :full_time_available, ['YES', 'NO'] %></p><br>
+    <h2><%= f.label :salary %></h2>
+    <p><%= f.text_field :salary %></h2><br>
+    <h2><%= f.submit :value=> "Add a employee" %></h2>
+  <% end %>
+</div>

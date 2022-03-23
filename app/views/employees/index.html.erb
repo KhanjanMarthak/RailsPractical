@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">    
+  <body>
+    <div class="Employee Title"> 
+      <h1>
+        Our Employees
+      </h1>
+    </div> 
+
+    <div class="our_employees"> 
+      <table class="Employee_table table">
+        <thead class="table_header_emp">
+          <tr>
+            <th scope="col">Employee Name</th>
+            <th scope="col"> Full Time Availability</th>
+            <th scope="col">No. of Orders</th>
+            <th scope="col">Show</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>  
+          </tr>
+        </thead> 
+        <% @employee.each do |employee| %>
+          <tr class="employee_data">
+            <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+            <td><p><%= employee.full_time_available %></p></td>
+            <td><p><%= employee.no_of_order%></p></td>
+            <td><%= button_to 'show', employee_path(employee), method: "get" %></td>
+            <td><%= button_to 'edit a employee', edit_employee_path(employee), method: "get" %></td>
+            <td><%= button_to 'delete a employee', employee_path(employee), method: "delete" %></td>
+          </tr>
+        <% end %>
+        
+      </table>
+    </div>
+
+    <div class="add"> 
+      <p><%= link_to 'Add a employee', new_employee_path %></p>
+      <p><%= link_to 'Show all faculies', faculties_path %></p>      
+    </div>
+  </body>
+</html>

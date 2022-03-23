@@ -20,9 +20,9 @@
   margin-right: 10%;
 }
 .navbar-nav > li{
-  padding-left:30px;
-  padding-right:30px;
-  }
+  padding-left:20px;
+  padding-right:20px;
+}
   
 .nav-item>a{
   font-size: 18px !important ;
@@ -102,4 +102,71 @@
 
 .valid-errors{
   text-align: center;
+}
+
+.table_header_emp{
+  background: linear-gradient(to right, #232526, #414345);  
+  font-weight: 600;
+  color: whitesmoke;
+ 
+}
+
+.Employee_table {
+  margin-bottom: 0px;
+}
+
+.table_header_emp >tr>th {
+  padding: 1%;
+  text-align: center;
+}
+
+.our_employees{
+  margin: 3%;
+  padding: 2%;
+
+}
+
+.employee_data{
+  text-align: center;
+  background: linear-gradient(to right, #8e9eab, #606c88);
+  color: whitesmoke;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+.employee_data >p{
+  width: fit-content;
+  margin: auto;
+}
+
+.employee_add{
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  background: #bfd1db;
+  padding: 1.5%;
+  border-radius: 50px;
+}
+
+
+.form-item> h2 {
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.form-item> p{
+  width: 100%;
+}
+
+.form-item>p>input{
+  width: 100%;
+}
+.field_with_errors>input{
+  width: 100%;
+}
+
+.submit_button{
+  font-size: 18px;
+  text-align: center;
+  margin-top: 5%;
 }

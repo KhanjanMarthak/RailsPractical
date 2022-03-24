@@ -18,10 +18,16 @@ class Student < ApplicationRecord
 
   #Destroying an Object
   before_destroy :will_destroy
-  after_destroy :object_destroyed , :if => :mycount? 
+  after_destroy :object_destroyed , if: :mycount? 
+
   #after_validation of DOB for student
   before_validation  :check_validation, :before_DOB
   after_validation  :complete_validation
+  
+  #after_touch
+  after_touch do
+    puts 'An Student was touched'
+  end
     
   private
   def object_initialisation
@@ -59,6 +65,7 @@ class Student < ApplicationRecord
   def check_validation
     puts "Checking validation"
   end
+
   def complete_validation
     puts "validation completed"
   end

@@ -1,9 +1,9 @@
 <h1 class="add_text"> Edit a Book </h1>
 <div class="container product_edit">
   <%= form_for @book do |f| %>
-  <h2><%= f.label :Book Name %></h2>
+  <h2><%= f.label :book_Name %></h2>
   <p><%= f.text_field :book_name %></p><br>
-  <h2> <%= f.label :Book Price%></h2>
+  <h2> <%= f.label :book_price%></h2>
   <p><%= f.number_field :book_price, :step => "0.10"  %></p><br>
   <h2><%= f.label :Author %></h2>
   <p><%= f.select :author_id, Author.all.map{|p| [p.first_name + " " + p.last_name , p.id ]}%></p>

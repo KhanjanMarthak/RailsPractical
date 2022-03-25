@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   resources :authors
   resources :students
   resources :faculties
+  get "employees/results", to: "employees#results"
   resources :employees
+  
   # Defines the root path route ("/")
   # root "articles#index"
 end

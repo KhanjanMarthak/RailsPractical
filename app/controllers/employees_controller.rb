@@ -13,9 +13,8 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee= Employee.new(employee_params)
+    @employee= Employee.find_or_create_by(employee_params)
     if @employee.valid?
-      @employee.save 
       redirect_to employees_path(@employee)
     else 
       flash.now[:errors]= @employee.errors.full_messages
@@ -44,6 +43,11 @@ class EmployeesController < ApplicationController
     @employee.destroy
     redirect_to employees_path(@employee)
   end
+
+  def results
+    @employee= Employee.all
+  end
+
   
   private
   def employee_params

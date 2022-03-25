@@ -1,0 +1,63 @@
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees having age between 20 and 40</h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th scope="col">Employee Name</th>
+          <th scope="col"> Full Time Availability</th>      
+        </tr>
+      </thead> 
+      <% @employee.where("age >20 and age< 40").each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.full_time_available %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees who are  available Full-time</h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th scope="col">Employee Name</th>
+          <th scope="col"> Full Time Availability</th>      
+        </tr>
+      </thead> 
+      <% @employee.where("full_time_available= 'YES' ").each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.full_time_available %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees who are  available Full-time</h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th scope="col">Employee Name</th>
+          <th scope="col"> Full Time Availability</th>      
+        </tr>
+      </thead> 
+      <% @employee.where("no_of_order = 5 and age > 50 ").each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.full_time_available %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>

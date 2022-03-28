@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   resources :students
   resources :faculties
   get "employees/results", to: "employees#results"
-  resources :employees
+  resources :employees do
+    post :increase_order #setting post route for button to increase order
+    post :decrease_order #setting post route for button to deccrease order
+  end
   
   # Defines the root path route ("/")
   # root "articles#index"

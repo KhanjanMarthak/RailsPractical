@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_23_055252) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_28_063839) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_23_055252) do
     t.integer "age"
     t.integer "no_of_order"
     t.string "full_time_available"
-    t.string "salary"
+    t.integer "salary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

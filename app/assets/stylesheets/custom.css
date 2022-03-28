@@ -121,7 +121,7 @@
 }
 
 .our_employees{
-  margin: 3%;
+  margin: 2% 0 2% 0;
   padding: 2%;
 
 }
@@ -149,11 +149,11 @@
   border-radius: 50px;
 }
 
-
 .form-item> h2 {
   font-size: 20px;
   font-family: 'Times New Roman', Times, serif;
 }
+
 .form-item> p{
   width: 100%;
 }
@@ -161,6 +161,7 @@
 .form-item>p>input{
   width: 100%;
 }
+
 .field_with_errors>input{
   width: 100%;
 }
@@ -169,4 +170,30 @@
   font-size: 18px;
   text-align: center;
   margin-top: 5%;
+}
+
+.button_order, .add_emp{
+ display: flex;
+ padding: 1%;
+ 
+}
+
+.check_mail{
+  text-align: center;
+}
+
+.check_mail>form{
+  margin: 10px;
+}
+
+.button_order> p{
+  padding: 1%;
+}
+
+.add_emp>p{
+  padding:  1%;
+}
+
+.Result_title{
+  text-align: center;
 }

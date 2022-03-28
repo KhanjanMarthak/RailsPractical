@@ -6,19 +6,20 @@
     <table class="Employee_table table">
       <thead class="table_header_emp">
         <tr>
-          <th scope="col">Employee Name</th>
-          <th scope="col"> Full Time Availability</th>      
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col"> Age</th>      
         </tr>
       </thead> 
       <% @employee.where("age >20 and age< 40").each do |employee| %>
         <tr class="employee_data">
           <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
-          <td><p><%= employee.full_time_available %></p></td>          
+          <td><p><%= employee.age %></p></td>          
         </tr>
       <% end %>  
     </table>
   </div>
 </div>
+
 <div class="results">
   <div class="Result_title">
     <h1>Employees who are  available Full-time</h1>
@@ -27,8 +28,8 @@
     <table class="Employee_table table">
       <thead class="table_header_emp">
         <tr>
-          <th scope="col">Employee Name</th>
-          <th scope="col"> Full Time Availability</th>      
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col"> Full Time Availability</th>      
         </tr>
       </thead> 
       <% @employee.where("full_time_available= 'YES' ").each do |employee| %>
@@ -40,22 +41,243 @@
     </table>
   </div>
 </div>
+
 <div class="results">
   <div class="Result_title">
-    <h1>Employees who are  available Full-time</h1>
+    <h1>No. of order is 5 and age is greater than 25</h1>
   </div>
   <div class="our_employees"> 
     <table class="Employee_table table">
       <thead class="table_header_emp">
         <tr>
-          <th scope="col">Employee Name</th>
-          <th scope="col"> Full Time Availability</th>      
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col">No. of Order</th>      
         </tr>
       </thead> 
-      <% @employee.where("no_of_order = 5 and age > 50 ").each do |employee| %>
+      <% @employee.where("no_of_order = 5 and age > 25 ").each do |employee| %>
         <tr class="employee_data">
           <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
-          <td><p><%= employee.full_time_available %></p></td>          
+          <td><p><%= employee.no_of_order %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees who are created before today</h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col"> created at</th>      
+        </tr>
+      </thead> 
+      <% @employee.where(" created_at < ? ", Date.today).each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name%></p></td>
+          <td><p><%= employee.created_at %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees no of order is 5 and less than 25</h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col">No. of Order</th>      
+        </tr>
+      </thead> 
+      <% @employee.where("no_of_order = 5 and age < 25 ").each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.no_of_order %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees age descending  </h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col">Age</th>      
+        </tr>
+      </thead> 
+      <% @employee.order("age DESC").each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.age %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees no of order ascending  </h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col">No. of order</th>      
+        </tr>
+      </thead> 
+      <% @employee.order("no_of_order ASC").each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.no_of_order %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees salary >45000  </h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col">Salary</th>      
+        </tr>
+      </thead> 
+      <% @employee.where(" salary >= 45000").each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.salary %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees group no_of_order  </h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col">No. of Order</th>      
+        </tr>
+      </thead> 
+      <% @employee.group("no_of_order").having("no_of_order>5").each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.no_of_order %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees unscope  </h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col"> Full Time Availability</th>      
+        </tr>
+      </thead> 
+      <% @employee.where("no_of_order>10").order("no_of_order DESC").unscope(:order).each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.no_of_order %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees only </h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col"> No. of Order</th>      
+        </tr>
+      </thead> 
+      <% @employee.where("no_of_order>10").order("no_of_order DESC").only(:order).each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.no_of_order %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees reorder  </h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col"> No. of Order </th>      
+        </tr>
+      </thead> 
+      <% @employee.reorder("no_of_order ASC").each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.no_of_order %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees reverse order</h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+          <th class="col-6" scope="col"> No_of order</th>      
+        </tr>
+      </thead> 
+      <% @employee.where("no_of_order>10").order("no_of_order DESC").reverse_order.each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_first_name + " " + employee.emp_last_name %></p></td>
+          <td><p><%= employee.no_of_order %></p></td>          
         </tr>
       <% end %>  
     </table>

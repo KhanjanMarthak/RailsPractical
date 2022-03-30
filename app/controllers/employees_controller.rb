@@ -2,9 +2,7 @@ class EmployeesController < ApplicationController
 
   def index
     @employee= Employee.all
-    if params[:check_mail]
-      check_mail()
-    end 
+    check_mail()
   end
 
   def show
@@ -54,12 +52,12 @@ class EmployeesController < ApplicationController
   
   #method to check email existance
   def check_mail
-    if @employee.where("email = ?",params[:check_mail])
-      @employee.each do |e| 
-        flash.now[:notice]= "Email Exists by " + " " + e.emp_first_name + " "+ e.emp_last_name
-      end   
-    else
-      flash.now[:notice]= "Email doesn't exists" 
+    if params[:check_mail]
+      if @employee.find_by("email = ? ", params[:check_mail]) 
+        flash.now[:notice]= "Email Exists" 
+      else
+        flash.now[:notice]= "Email doesn't exists" 
+      end
     end
   end
   
@@ -77,12 +75,11 @@ class EmployeesController < ApplicationController
   def decrease_order
     @temp = Employee.find_in_batches(batch_size:10) 
     @temp.first.each do |f| 
-        f.no_of_order -=1
-        f.save
+      f.no_of_order -=1
+      f.save
     end 
     redirect_to employees_path(@employee)
   end
-
 
   private
   def employee_params

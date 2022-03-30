@@ -283,3 +283,23 @@
     </table>
   </div>
 </div>
+
+<div class="results">
+  <div class="Result_title">
+    <h1>Employees reselect</h1>
+  </div>
+  <div class="our_employees"> 
+    <table class="Employee_table table">
+      <thead class="table_header_emp">
+        <tr>
+          <th class="col-6" scope="col">Employee Name</th>
+        </tr>
+      </thead> 
+      <% @employee.select(:emp_first_name, :id).reselect(:emp_last_name).each do |employee| %>
+        <tr class="employee_data">
+          <td><p><%= employee.emp_last_name %></p></td>          
+        </tr>
+      <% end %>  
+    </table>
+  </div>
+</div>

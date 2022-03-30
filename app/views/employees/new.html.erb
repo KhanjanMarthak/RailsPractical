@@ -1,0 +1,52 @@
+<h1 class="add_text"> Add a Employee</h1>
+<% if flash[:errors] %>
+  <div class="valid-errors alert alert-danger" role="alert">
+    <h2>Errors Faced while Adding a employee</h2>
+      <% flash[:errors].each do |error|%>
+        <p><%= error %></p> 
+      <%end %>
+  </div>
+<% end %>
+<div class="container employee_add">
+  <%= form_for @employee, remote: false  do |f| %>
+    <div class="row ">
+      <div class="col-lg-6 form-item">
+        <h2><%= f.label :emp_first_name %></h2>
+        <p><%= f.text_field :emp_first_name %></p>
+      </div>
+      <div class="col-lg-6 form-item">
+        <h2><%= f.label :emp_last_name%></h2>
+        <p><%= f.text_field :emp_last_name %></h2>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-lg-12 form-item">
+       <h2><%= f.label :email%></h2>
+        <p><%= f.text_field :email %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 form-item">
+        <h2><%= f.label :age %></h2>
+        <p><%= f.text_field :age %></p>
+      </div>
+      <div class="col-lg-6 form-item">
+        <h2><%= f.label :no_of_order %></h2>
+        <p><%= f.number_field :no_of_order %></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 form-item">
+        <h2><%= f.label :full_time_available %></h2>
+        <p><%= f.select :full_time_available, ['YES', 'NO'] %></p>
+      </div>
+      <div class="col-lg-6 form-item">
+        <h2><%= f.label :salary %></h2>
+        <p><%= f.text_field :salary %></h2>
+      </div>
+    </div>   
+
+    <div class="submit_button"><%= f.submit :value=> "Add a employee" %></div>
+  <% end %>
+</div>

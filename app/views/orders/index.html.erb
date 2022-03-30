@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">    
+
+  <body>
+    <div class="products_title"> 
+      <h1>
+        Our orders
+      </h1>
+    </div> 
+    <div class="add"> <%= link_to 'Add a order', new_order_path %></div>
+    <div class="our_products"> 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Status</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Show</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+
+        <% @order.each do |order| %>
+          <tr>
+            <td><p><%= order.quantity %></p></td>
+            <td><p><%= (order.quantity)*(order.aqproduct.price)%></p></td>
+            <td><p><%= order.status %></p></td>
+            <td><p><%= order.customer.fname + " " +order.customer.lname%></p></td>
+            <td><%= button_to 'show',order_path(order), method: "get" %></td>
+            <td><%= button_to 'edit a order', edit_order_path(order), method: "get" %></td>
+            <td><%= button_to 'delete a order', order_path(order), method: "delete" %></td>  
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,18 @@
+<h1 class="add_text"> edit a Product </h1>
+<div class="container create_form">
+  <%= form_for @product, remote: false  do |f| %>
+    <h2><%= f.label :title %></h2>
+    <p><%= f.text_field :title %></p><br>
+    <h2><%= f.label :description%></h2>
+    <p><%= f.text_area :description %></h2><br>
+    <h2><%= f.label :price %></h2>
+    <p><%= f.number_field :price %></h2> <br>
+    <h2><%= f.label :capacity %></h2>
+    <p><%= f.number_field :capacity %></h2> <br>
+    <h2><%= f.label :is_active %></h2>
+    <p><%= f.select :is_active, options_for_select([true,false]) %></p>
+    <h2><%= f.label :status %></h2>
+    <p><%= f.select :status, Aqproduct.statuses.keys %></p>
+    <h2><%= f.submit %></h2>
+  <% end %>
+</div>

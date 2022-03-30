@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">    
+
+  <body>
+    <div class="products_title"> 
+      <h1>
+        Our Products
+      </h1>
+    </div> 
+    <div class="add"> <%= link_to 'Add a product', new_aqproduct_path %></div>
+    <div class="our_products"> 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Capacity</th>
+            <th scope="col">No. of Order</th>
+            <th scope="col">Status</th>
+            <th scope="col">Active status</th>
+            <th scope="col">Show</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+
+        <% @product.each do |product| %>
+          <tr>
+            
+            <td><p><%= product.title %></p></td>
+            <td><p><%= product.description %></p></td>
+            <td><p><%= product.price %></p></td>
+            <td><p><%= product.capacity %></p></td>
+            <td><p><%= product.orders.count%></p></td>
+            <td><p><%= product.status %></p></td>
+            <td><p><%= product.is_active %></p></td>
+
+            <td><%= button_to 'show',aqproduct_path(product), method: "get" %></td>
+            <td><%= button_to 'edit a product', edit_aqproduct_path(product), method: "get" %></td>
+            <td><%= button_to 'delete a product', aqproduct_path(product), method: "delete" %></td>  
+          </tr>
+        <% end %>
+
+      </table>
+    </div>
+  </body>
+
+</html>

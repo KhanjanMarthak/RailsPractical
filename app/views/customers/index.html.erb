@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">    
+
+  <body>
+    <div class="products_title"> 
+      <h1>
+        Our Customers
+      </h1>
+    </div> 
+    <div class="add"> <%= link_to 'Add a customer', new_customer_path %></div>
+    <div class="our_products"> 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">fname</th>
+            <th scope="col">lname</th>
+            <th scope="col">email</th>
+            <th scope="col">phonenumber</th>
+            <th scope="col">Show</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+
+        <% @customer.each do |customer| %>
+          <tr>
+            <td><p><%= customer.fname %></p></td>
+            <td><p><%= customer.lname %></p></td>
+            <td><p><%= customer.email %></p></td>
+            <td><p><%= customer.phone %></p></td>
+            <td><%= button_to 'show',customer_path(customer), method: "get" %></td>
+            <td><%= button_to 'edit a customer', edit_customer_path(customer), method: "get" %></td>
+            <td><%= button_to 'delete a customer', customer_path(customer), method: "delete" %></td>  
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </body>
+
+</html>

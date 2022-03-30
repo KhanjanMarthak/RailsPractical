@@ -20,6 +20,11 @@ Rails.application.routes.draw do
     post :increase_order #setting post route for button to increase order
     post :decrease_order #setting post route for button to deccrease order
   end
+  get "aqproducts/seperate", to: "aqproducts#seperate"
+  resources :aqproducts
+  resources :customers
+  resources :orders
+  
   
   # Defines the root path route ("/")
   # root "articles#index"

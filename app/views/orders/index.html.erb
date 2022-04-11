@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">    
+
+  <body>
+    <div class="add"> <%= link_to 'Add a order', new_order_path %></div>
+    <div class="products_title"> 
+      <h1>
+        Our orders
+      </h1>
+    </div> 
+
+    <div class="searchbutton">
+      <%= form_tag "/orders", method: "GET" do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search" %>
+      <% end %>
+      <div class="our_products">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Order ID</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <% @search.each do |search| %>
+            <tr>
+              <td><p><%= search.id %></p></td>
+              <td><p><%= search.aqproduct.title %></p></td>
+              <td><p><%= search.quantity %></p></td>
+              <td><p><%=search.total_price%></p></td>
+              <td><p><%= search.status %></p></td>
+            </tr> 
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <div class="products_title"> 
+      <h1>
+       Orders with filtered data
+      </h1>
+    </div>
+    <div class="our_products"> 
+      <div class="searchbutton">
+      <%= form_tag "/orders", method: "GET" do %>
+        <%= select_tag :filter, options_for_select(Order.statuses.keys) %>
+        <%= submit_tag "filter" %>
+      <% end %>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Status</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Show</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <% @order.each do |order| %>
+          <tr>
+            <td><p><%= order.aqproduct.title %></p></td>
+            <td><p><%= order.quantity %></p></td>
+            <td><p><%=order.total_price%></p></td>
+            <td><p><%= order.status %></p></td>
+            <td><p><%= order.customer.fname + " " +order.customer.lname%></p></td>
+            <td><%= button_to 'show',order_path(order), method: "get" %></td>
+            <td><%= button_to 'edit a order', edit_order_path(order), method: "get" %></td>
+            <td><%= button_to 'delete a order', order_path(order), method: "delete" %></td>  
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </body>
+</html>

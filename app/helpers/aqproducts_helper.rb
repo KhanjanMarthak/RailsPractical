@@ -1,0 +1,2 @@
+module AqproductsHelper
+end

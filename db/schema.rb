@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_28_063839) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_30_103347) do
+  create_table "aqproducts", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "capacity"
+    t.boolean "is_active"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "price"
+  end
+
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -29,6 +40,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_063839) do
     t.integer "author_id"
     t.integer "pages"
     t.index ["author_id"], name: "index_books_on_author_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "fname"
+    t.string "lname"
+    t.string "email"
+    t.integer "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -70,6 +90,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_063839) do
   create_table "join_tables", id: false, force: :cascade do |t|
     t.integer "author_id"
     t.integer "book_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "total_price"
+    t.integer "status"
+    t.integer "aqproduct_id"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">    
+
+  <body>
+    <div class="products_title"> 
+      <h1>
+        Our Products
+      </h1>
+    </div> 
+    <div class="add"> <%= link_to 'Add a product', new_aqproduct_path %></div>
+    <div class="our_products"> 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Capacity</th>
+            <th scope="col">Status</th>
+            <th scope="col">Active status</th>
+          </tr>
+        </thead>
+        <% @product.each do |product| %>
+          <tr>   
+            <td><p><%= product.title %></p></td>
+            <td><p><%= product.description %></p></td>
+            <td><p><%= product.capacity %></p></td>
+            <td><p><%= product.price %></p></td>
+            <td><p><%= product.status %></p></td>
+            <td><p><%= product.is_active %></p></td>  
+          </tr>
+        <% end %>
+
+      </table>
+    </div>
+  </body>
+</html>

@@ -197,3 +197,15 @@
 .Result_title{
   text-align: center;
 }
+
+.searchbutton{
+  text-align: center;
+  padding: 20px;
+}
+
+.myflex{
+  display: flex;
+}
+.myflex> .add{
+  width: 100%;
+}

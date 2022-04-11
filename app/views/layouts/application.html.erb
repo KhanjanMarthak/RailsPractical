@@ -41,8 +41,8 @@
                 Active-Migrations
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="authors">Authors</a></li>
-                <li><a class="dropdown-item" href="books">Books</a></li>
+                <li><%= link_to "Authors",  authors_path, class: "dropdown-item"%></li>
+                <li><%= link_to "Books",  books_path, class: "dropdown-item"%></li>
               </ul>
             </li> 
             <li class="nav-item dropdown">
@@ -50,8 +50,8 @@
                 Active-Validations
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="students">Students</a></li>
-                <li><a class="dropdown-item" href="faculties">Faculties</a></li>
+                <li><%= link_to "Students",  students_path, class: "dropdown-item"%> </li>
+                <li><%= link_to "Faculties",  faculties_path, class: "dropdown-item"%> </li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -59,14 +59,14 @@
                 Active-Query
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="employees">Employees</a></li>
-                <li><a class="dropdown-item" href="employees/results">Results</a></li>
-                <li><a class="dropdown-item" href="aqproducts">Products</a></li>
-                <li><a class="dropdown-item" href="aqproducts/seperate">Seperate</a></li>
-                <li><a class="dropdown-item" href="orders">Orders</a></li>
-                <li><a class="dropdown-item" href="customers">Customers</a></li>
-                <li><a class="dropdown-item" href="orders/root">Root</a></li>
-              </ul>
+                <li><%= link_to "Employees",  employees_path, class: "dropdown-item"%> </li>
+                <li><%= link_to "Results",  employees_results_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Products",  aqproducts_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Seperate",  aqproducts_seperate_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Orders",  orders_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Customers",  customers_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Root", orders_root_path, class: "dropdown-item" %></li>
+              </ul>         
             </li> 
             
             <li class="nav-item dropdown">

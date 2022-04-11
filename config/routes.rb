@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "aqproducts/seperate", to: "aqproducts#seperate"
   resources :aqproducts
   resources :customers
+  get "orders/root", to: "orders#root"
   resources :orders
   
   

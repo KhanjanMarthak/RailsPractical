@@ -3,4 +3,3 @@ class Customer < ApplicationRecord
   validates :phone, numericality: true
   has_many :orders, dependent: :destroy
 end
-

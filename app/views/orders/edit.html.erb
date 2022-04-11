@@ -4,7 +4,7 @@
     <h2><%= f.label :quantity %></h2>
     <p><%= f.text_field :quantity %></p><br>
     <h2><%= f.label :product %></h2>
-    <p><%= f.select :aqproduct_id, Aqproduct.all.map{|p| [p.title , p.id ]} %></h2><br>
+    <p><%= f.select :aqproduct_id, Aqproduct.in_stock.map{|p| [p.title , p.id ]} %></h2><br>
     <h2><%= f.label :product %></h2>
     <p><%= f.select :customer_id, Customer.all.map{|p| [p.fname , p.id ]} %></h2><br>
     <h2><%= f.label :status %></h2>

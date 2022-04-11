@@ -26,6 +26,10 @@ class AqproductsController < ApplicationController
     @product = Aqproduct.find(params[:id])
     @product.update(product_params)
     redirect_to aqproducts_path(@product)
+    @order= Order.where(aqproduct_id: @product).each do |f|
+      f.total_price = @product.price * f.quantity
+      f.save 
+    end
   end
   
   def destroy

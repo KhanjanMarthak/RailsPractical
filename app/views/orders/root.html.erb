@@ -1,0 +1,107 @@
+<div class="myflex">
+  <div class="add"> <%= link_to 'Product Index Page', aqproducts_path %></div>
+  <div class="add"> <%= link_to 'Customer Index Page',  customers_path %></div>
+  <div class="add"> <%= link_to 'Order Index Page',  orders_path %></div>
+</div>
+
+<div class="products_title"> 
+  <h1>
+    Most sales product by quantity
+  </h1>
+</div>
+<div class="our_products"> 
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Customer ID</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Quantity (Sum)</th>            
+      </tr>
+    </thead>
+      <% @order.select("customer_id, sum(quantity) as Sum1").group("customer_id").order(sum1: :desc, customer_id: :asc).first(3).each do |order| %>
+        <tr>
+          <td><p><%= order.customer_id %></p></td>
+          <td><p><%= order.customer.fname + " " + order.customer.lname %></p></td>
+          <td><p><%= order.Sum1%></p></td>              
+        </tr>
+      <% end %>        
+  </table>
+</div>
+
+<div class="products_title"> 
+  <h1>
+    Most sales product by price
+  </h1>
+</div>
+<div class="our_products"> 
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Customer ID</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">total price (Sum)</th>            
+      </tr>
+    </thead>
+      <% @order.select("customer_id, sum(total_price) as Sum1").group("customer_id").order(Sum1: :desc, customer_id: :asc).first(3).each do |order| %>
+        <tr>
+          <td><p><%= order.customer_id%></p></td>
+          <td><p><%= order.customer.fname + " " + order.customer.lname %></p></td>
+          <td><p><%= order.Sum1%></p></td>              
+        </tr>
+      <% end %>        
+  </table>
+</div>
+
+<div class="products_title"> 
+  <h1>
+    top 5 customers who have maxium booked the orders
+  </h1>
+</div>
+<div class="our_products"> 
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Customer Name</th>
+        <th scope="col">No. of orders</th>
+        <th scope="col">Phone</th>  
+        <th scope="col">Email</th>          
+      </tr>
+    </thead>
+    <% @order.where(status:"booked").group("customer_id").count.sort_by(&:last).last(5).reverse.each do |order| %>
+      <tr>
+        <% @customer = Customer.find_by(id: order[0]) %>
+        <td><%= @customer.fname %></td>
+        <td><%= order[1] %></td>
+        <td><%= @customer.phone %> </td>
+        <td><%= @customer.email %> </td>
+      </tr>
+    <% end%>
+  </table>
+</div>
+
+<div class="products_title"> 
+  <h1>
+    top 5 customers who have maxium cancelled the orders
+  </h1>
+</div>
+<div class="our_products"> 
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Customer ID</th>
+        <th scope="col">No. of Orders</th>
+        <th scope="col">Customer Name</th>   
+        <th scope="col">order</th>         
+      </tr>
+    </thead>
+    <% @order.where(status:"cancelled").group("customer_id").count.sort_by(&:last).last(5).reverse.each do |order| %>
+      <tr>
+        <% @customer = Customer.find_by(id: order[0]) %>
+        <td><%= @customer.fname %></td>
+        <td><%= order[1] %></td>
+        <td><%= @customer.phone %> </td>
+        <td><%= @customer.email %> </td>
+      </tr>
+    <% end%>  
+  </table>
+</div> 

@@ -24,18 +24,15 @@
             <th scope="col">Delete</th>
           </tr>
         </thead>
-
         <% @product.each do |product| %>
-          <tr>
-            
+          <tr> 
             <td><p><%= product.title %></p></td>
             <td><p><%= product.description %></p></td>
             <td><p><%= product.price %></p></td>
             <td><p><%= product.capacity %></p></td>
-            <td><p><%= product.orders.count%></p></td>
+            <td><p><%= product.orders.sum(:quantity) %></p></td>
             <td><p><%= product.status %></p></td>
             <td><p><%= product.is_active %></p></td>
-
             <td><%= button_to 'show',aqproduct_path(product), method: "get" %></td>
             <td><%= button_to 'edit a product', edit_aqproduct_path(product), method: "get" %></td>
             <td><%= button_to 'delete a product', aqproduct_path(product), method: "delete" %></td>  
@@ -44,37 +41,5 @@
 
       </table>
     </div>
-
-    <div class="our_products"> 
-      <div class="products_title"> 
-        <h1>
-          top 3 customers
-        </h1>
-      </div> 
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">first name</th>
-            <th scope="col">last name</th>
-          </tr>
-        </thead>
-
-        <% @product.each do |product| %>
-          <tr>
-            
-            <td><p><%= product.cut %></p></td>
-            <td><p><%= product.description %></p></td>
-            <td><p><%= product.price %></p></td>
-            <td><p><%= product.capacity %></p></td>
-            <td><p><%= product.orders.count%></p></td>
-            <td><p><%= product.status %></p></td>
-            <td><p><%= product.is_active %></p></td>
-
-          </tr>
-        <% end %>
-
-      </table>
-    </div>
   </body>
-
 </html>

@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
   def index
     @order = Order.all
+    @search =  Order.search(params[:search])
+    if params[:filter]
+      @order= Order.where(status:"booked") if params[:filter]=='booked'
+      @order= Order.where(status:"cancelled") if params[:filter]=='cancelled'
+    end
   end
   
   def new
@@ -12,11 +17,14 @@ class OrdersController < ApplicationController
   end 
   
   def edit
-    @order =Order.find(params[:id])
+    @order =Order.find(params[:id]) 
   end
   
   def create
-    @order = Order.create(order_params)
+    @order = Order.new(order_params)
+    @temp= order_params[:aqproduct_id]
+    @product_price = Aqproduct.find(@temp)
+    @order.total_price = @product_price.price * @order.quantity
     if @order.save
       redirect_to orders_path(@order)
     else
@@ -27,6 +35,10 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    @temp= order_params[:aqproduct_id]
+    @product_price = Aqproduct.find(@temp)
+    @order.total_price = @product_price.price * @order.quantity
+    @order.save
     redirect_to orders_path(@order)
   end
   
@@ -35,9 +47,14 @@ class OrdersController < ApplicationController
     @order.destroy
     redirect_to orders_path(@order)
   end
+  
+  def root 
+     @order = Order.all
+  end
 
   private
   def order_params
-    params.require(:order).permit(:quantity,:total_price,:aqproduct_id,:customer_id,:status)
+    params.require(:order).permit(:quantity,:total_price,:aqproduct_id,:customer_id,:status, :search)
   end
+  
 end
